@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SmallButton } from "./Button";
+import { Button } from "./Button";
 
 export const NavMenu = () => {
   return (
@@ -17,7 +17,7 @@ export const NavMenu = () => {
       <li>
         <Link href="/signup">
           <a className="align-middle">
-            <SmallButton>Post a Task</SmallButton>
+            <Button variant="SMALL_PRIMARY">Post a Task</Button>
           </a>
         </Link>
       </li>
