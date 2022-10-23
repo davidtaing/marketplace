@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { joinClassNames } from "../utils";
 import { Button } from "./Button";
 import { NavItem } from "./NavItem";
@@ -15,6 +16,14 @@ interface NavMenuProps {
 }
 
 export const NavMenu = ({ active, closeMenu }: NavMenuProps) => {
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      document.body.style.overflow = "unset";
+    } else {
+      document.body.style.overflow = active ? "hidden" : "unset";
+    }
+  }, [active]);
+
   return (
     <ul
       className={joinClassNames(
