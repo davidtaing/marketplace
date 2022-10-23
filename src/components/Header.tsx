@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header className="p-4">
       <LayoutContainer className="flex justify-between items-center">
-        <span className="text-xl font-medium align-middle">
+        <span className="text-xl font-medium align-middle text-slate-900">
           <Link href="/">
             <a className="align-middle">marketplace</a>
           </Link>

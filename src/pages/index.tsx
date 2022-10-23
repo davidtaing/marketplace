@@ -11,7 +11,7 @@ const Home: NextPage = () => {
           <h1 className="w-full text-5xl font-medium text-slate-900">
             Need Something Done?
           </h1>
-          <p className="w-full text-2xl mt-4 text-slate-700">
+          <p className="w-full text-2xl mt-4 ">
             Support the community with small jobs.
           </p>
           <div className="flex gap-4 mt-8">
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           <h2 className="w-full text-3xl font-medium text-slate-900">
             An Intitiative By Teeang
           </h2>
-          <p className="w-full text-xl mt-4 text-slate-700">
+          <p className="w-full text-xl mt-4">
             It is our mission to Lorem ipsum dolor sit, amet consectetur
             adipisicing elit. Culpa magnam reprehenderit corrupti voluptate,
             asperiores expedita blanditiis vero maxime.
