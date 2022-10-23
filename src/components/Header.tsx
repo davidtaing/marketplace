@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import { joinClassNames } from "../utils";
 import { HamburgerMenu } from "./HamburgerMenu";
 
 import { LayoutContainer } from "./LayoutContainer";
@@ -18,10 +17,14 @@ export const Header = () => {
           </Link>
         </span>
         <HamburgerMenu
+          className="md:hidden"
           active={hamburgerActive}
           toggleActive={() => setHamburgerActive(!hamburgerActive)}
         />
-        <NavMenu />
+        <NavMenu
+          active={hamburgerActive}
+          closeMenu={() => setHamburgerActive(false)}
+        />
       </LayoutContainer>
     </header>
   );
