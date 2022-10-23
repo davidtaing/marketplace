@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { joinClassNames } from "../utils";
-
-const BUTTON = "rounded-md px-3 py-2";
-const PRIMARY_BUTTON =
-  "bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 text-gray-50";
+import { SmallButton } from "./Button";
 
 export const NavMenu = () => {
   return (
@@ -21,9 +17,7 @@ export const NavMenu = () => {
       <li>
         <Link href="/signup">
           <a className="align-middle">
-            <button className={joinClassNames(BUTTON, PRIMARY_BUTTON)}>
-              Post a Task
-            </button>
+            <SmallButton>Post a Task</SmallButton>
           </a>
         </Link>
       </li>
