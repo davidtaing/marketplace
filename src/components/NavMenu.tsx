@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { joinClassNames } from "../utils";
 import { Button } from "./Button";
+import { NavItem } from "./NavItem";
 
 const styles = {
   base: "flex flex-col gap-4 absolute top-0 left-0 z-40 p-4 w-screen h-screen bg-white",
@@ -24,23 +24,15 @@ export const NavMenu = ({ active, closeMenu }: NavMenuProps) => {
         active ? "" : "hidden"
       )}
     >
-      <li onClick={closeMenu}>
-        <Link href="/">
-          <a className="align-middle">Home</a>
-        </Link>
-      </li>
-      <li onClick={closeMenu}>
-        <Link href="/login">
-          <a className="align-middle">Login</a>
-        </Link>
-      </li>
-      <li onClick={closeMenu}>
-        <Link href="/signup">
-          <a className="align-middle">
-            <Button variant="SMALL_PRIMARY">Post a Task</Button>
-          </a>
-        </Link>
-      </li>
+      <NavItem onClick={closeMenu} href="/">
+        Home
+      </NavItem>
+      <NavItem onClick={closeMenu} href="/login">
+        Login
+      </NavItem>
+      <NavItem onClick={closeMenu} href="/signup">
+        <Button variant="SMALL_PRIMARY">Post a Task</Button>
+      </NavItem>
     </ul>
   );
 };
