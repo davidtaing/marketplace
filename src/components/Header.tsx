@@ -1,10 +1,14 @@
+import { useState } from "react";
 import Link from "next/link";
 import { joinClassNames } from "../utils";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 import { LayoutContainer } from "./LayoutContainer";
 import { NavMenu } from "./NavMenu";
 
 export const Header = () => {
+  const [hamburgerActive, setHamburgerActive] = useState(false);
+
   return (
     <header className="p-4">
       <LayoutContainer className="flex justify-between items-center">
@@ -13,6 +17,10 @@ export const Header = () => {
             <a className="align-middle">marketplace</a>
           </Link>
         </span>
+        <HamburgerMenu
+          active={hamburgerActive}
+          toggleActive={() => setHamburgerActive(!hamburgerActive)}
+        />
         <NavMenu />
       </LayoutContainer>
     </header>
