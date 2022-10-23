@@ -19,6 +19,11 @@ const Variants = {
     Styles.sizes.small,
     Styles.function.secondary
   ),
+  MEDIUM_PRIMARY: joinClassNames(Styles.sizes.medium, Styles.function.primary),
+  MEDIUM_SECONDARY: joinClassNames(
+    Styles.sizes.medium,
+    Styles.function.secondary
+  ),
 } as const;
 
 interface ButtonProps<T extends keyof typeof Variants>

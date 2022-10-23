@@ -1,10 +1,5 @@
 import type { NextPage } from "next";
-
-const BUTTON = "rounded-md px-4 py-3";
-const PRIMARY_BUTTON =
-  "bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 text-gray-50";
-const SECONDARY_BUTTON =
-  "border border-slate-500 hover:bg-slate-500 hover:text-gray-50 active:bg-slate-600 active:text-gray-50 text-slate-900";
+import { Button } from "../components/Button";
 
 const LI = "w-full min-h-[10rem] bg-white text-slate-700 py-3 px-6 rounded-md";
 
@@ -20,13 +15,9 @@ const Home: NextPage = () => {
             Support the community with small jobs.
           </p>
           <div className="flex gap-4 mt-8">
-            <button className={`${BUTTON} ${PRIMARY_BUTTON}`}>
-              Post a Task
-            </button>
+            <Button variant="MEDIUM_PRIMARY">Post a Task</Button>
             <span className="text-l self-center">or</span>
-            <button className={`${BUTTON} ${SECONDARY_BUTTON}`}>
-              Earn Money
-            </button>
+            <Button variant="MEDIUM_SECONDARY">Earn Money</Button>
           </div>
         </div>
       </section>
