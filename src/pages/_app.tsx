@@ -1,11 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Header } from "../components/Header";
-import { loadStripe } from "@stripe/stripe-js";
+import { initStripe } from "../utils";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ""
-);
+export const stripePromise = initStripe();
 
 if (process.env.NODE_ENV === "development") {
   require("../mocks");
