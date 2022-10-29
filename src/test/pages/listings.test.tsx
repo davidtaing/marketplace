@@ -20,9 +20,7 @@ describe("ListingsPage", () => {
       render(<ListingsPage />);
 
       await act(() => {
-        waitForElementToBeRemoved(() => screen.getByText(/loading/i), {
-          timeout: 5000,
-        });
+        waitForElementToBeRemoved(() => screen.getByText(/loading/i));
       });
 
       const results = screen.getAllByRole("listitem");
