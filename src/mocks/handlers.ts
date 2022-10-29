@@ -1,5 +1,6 @@
 import { rest } from "msw";
 import Stripe from "stripe";
+import { taskHandlers } from "./handlers/tasks";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "", {
   apiVersion: "2022-08-01",
 });
@@ -29,4 +30,5 @@ export const handlers = [
       );
     }
   ),
+  ...taskHandlers,
 ];
