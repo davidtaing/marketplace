@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import fetch from "node-fetch";
+
 import { LayoutContainer } from "../components/LayoutContainer";
 import { ListingCard } from "../features/Listings/ListingCard";
 import { Task } from "../types";
@@ -13,6 +15,7 @@ export enum TaskStatus {
 const getListingsUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/tasks`;
 
 const ListingsPage = () => {
+  const router = useRouter();
   const [listings, setListings] = useState<Task[]>([]);
   const [status, setStatus] = useState(TaskStatus.Loading);
   const [error, setError] = useState("");
@@ -49,6 +52,9 @@ const ListingsPage = () => {
               budget={item.budget}
               category={item.category}
               postcode={item.location.name}
+              onClick={() => {
+                router.push(`/tasks/${item.id}`);
+              }}
             />
           ))}
         </ul>
