@@ -5,6 +5,7 @@ import fetch from "node-fetch";
 import { LayoutContainer } from "../components/LayoutContainer";
 import { ListingCard } from "../features/Listings/ListingCard";
 import { Task } from "../types";
+import { FeatureFlag } from "../features/FeatureFlag";
 
 export enum TaskStatus {
   "Loading" = "LOADING",
@@ -63,4 +64,4 @@ const ListingsPage = () => {
   );
 };
 
-export default ListingsPage;
+export default FeatureFlag(ListingsPage, { isPage: true });
