@@ -14,7 +14,7 @@ describe("FeatureFlag", () => {
   });
 
   describe("When node_env = 'production'", () => {
-    test("it returns the component", () => {
+    test("it returns a React.Fragment", () => {
       process.env = { ...env, NODE_ENV: "production" };
 
       const ProductionComponent = () => <div>Production Component</div>;
@@ -44,7 +44,7 @@ describe("FeatureFlag", () => {
   });
 
   describe("When node_env = 'development'", () => {
-    test("it returns the React.Fragment", () => {
+    test("it returns the development component", () => {
       process.env = { ...env, NODE_ENV: "development" };
 
       const DevlopmentComponent = () => <div>Development Component</div>;
@@ -57,7 +57,7 @@ describe("FeatureFlag", () => {
   });
 
   describe("When node_env = 'test'", () => {
-    test("it returns a React.Fragment", () => {
+    test("it returns a test component", () => {
       process.env = { ...env, NODE_ENV: "test" };
 
       const TestComponent = () => <div>Test Component</div>;
