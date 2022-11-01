@@ -18,9 +18,9 @@ First, you will need to setup the enviornment variables.
 ### To run tests
 `npm run test`
 
-Make sure you have jest installed globally via `npm i jest -g`
+Make sure you have Jest installed globally via `npm i jest -g`
 
-## Build With
+## Built With
 - TypeScript
 - Next.js
 - React
