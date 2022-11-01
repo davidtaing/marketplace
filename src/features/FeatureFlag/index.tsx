@@ -3,6 +3,10 @@ import { Fragment, ComponentType } from "react";
 
 import { LayoutContainer } from "../../components/LayoutContainer";
 
+/**
+ * Fallback for FeatureFlagged pages.
+ * @returns feature not available heading and link to the homepage.
+ */
 const PageNotAvailableFallback = () => (
   <LayoutContainer className="flex flex-col">
     <h1 className="text-4xl font-medium">This feature is not available.</h1>
