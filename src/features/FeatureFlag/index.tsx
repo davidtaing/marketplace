@@ -12,6 +12,13 @@ const PageNotAvailableFallback = () => (
   </LayoutContainer>
 );
 
+/**
+ * Hides a component in production environments.
+ * Primarily used to hide features that are currently under development.
+ * @param component React Component
+ * @param options
+ * @returns component, or React.Fragment, or PageNotAvailableFallback
+ */
 export const FeatureFlag = <T,>(
   component: ComponentType<T>,
   options: {
