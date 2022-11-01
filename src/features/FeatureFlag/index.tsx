@@ -3,6 +3,10 @@ import { Fragment, ComponentType } from "react";
 
 import { LayoutContainer } from "../../components/LayoutContainer";
 
+/**
+ * Fallback for FeatureFlagged pages.
+ * @returns feature not available heading and link to the homepage.
+ */
 const PageNotAvailableFallback = () => (
   <LayoutContainer className="flex flex-col">
     <h1 className="text-4xl font-medium">This feature is not available.</h1>
@@ -12,6 +16,13 @@ const PageNotAvailableFallback = () => (
   </LayoutContainer>
 );
 
+/**
+ * Hides a component in production environments.
+ * Primarily used to hide features that are currently under development.
+ * @param component React Component
+ * @param options
+ * @returns component, or React.Fragment, or PageNotAvailableFallback
+ */
 export const FeatureFlag = <T,>(
   component: ComponentType<T>,
   options: {
