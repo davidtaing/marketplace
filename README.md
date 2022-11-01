@@ -1,6 +1,6 @@
 # This is a sister project the [Code.Sydney Migram Project](https://github.com/codesydney/migram-frontend).
 
-So I started this project so that I could iterate fast, experiment fast and learn fast. My intention is to take the ideas and techniques from this project and bring those into the Migram project.
+I started this project so that I could iterate fast, experiment fast and learn fast. My intention is to take the ideas and techniques from this project and bring those into the Migram project.
 
 ## Getting Started
 
