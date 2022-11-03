@@ -21,3 +21,17 @@ export interface Task {
   timeElapsed: string;
   id: string;
 }
+
+export enum QueryStatus {
+  "Loading" = "LOADING",
+  "Success" = "SUCCESS",
+  "Error" = "ERROR",
+}
+
+export enum TaskCategory {
+  "All" = "All",
+  "Cleaning" = "Cleaning",
+  "Gardening" = "Gardening",
+  "Painting" = "Painting",
+  "Other" = "Other",
+}

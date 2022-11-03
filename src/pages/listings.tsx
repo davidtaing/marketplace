@@ -4,37 +4,39 @@ import fetch from "node-fetch";
 
 import { LayoutContainer } from "../components/LayoutContainer";
 import { ListingCard } from "../features/Listings/ListingCard";
-import { Task } from "../types";
+import { QueryStatus, Task, TaskCategory } from "../types";
 import { FeatureFlag } from "../features/FeatureFlag";
+import { CategoryFilterGroup } from "../features/Listings/CategoryFilterGroup";
 
-export enum TaskStatus {
-  "Loading" = "LOADING",
-  "Success" = "SUCCESS",
-  "Error" = "ERROR",
-}
+const categories = Object.keys(TaskCategory) as TaskCategory[];
 
 const getListingsUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/tasks`;
 
 const ListingsPage = () => {
   const router = useRouter();
   const [listings, setListings] = useState<Task[]>([]);
-  const [status, setStatus] = useState(TaskStatus.Loading);
+  const [filter, setFilter] = useState(TaskCategory.All);
+  const [status, setStatus] = useState(QueryStatus.Loading);
   const [error, setError] = useState("");
+  const filteredListings =
+    filter !== "All"
+      ? listings.filter((listing) => listing.category === filter)
+      : listings;
 
   useEffect(() => {
     fetch(getListingsUrl)
       .then((res) => res.json())
       .then((data: Task[]) => {
         setListings(data);
-        setStatus(TaskStatus.Success);
+        setStatus(QueryStatus.Success);
       })
       .catch((err: any) => {
-        setStatus(TaskStatus.Error);
+        setStatus(QueryStatus.Error);
         setError(err.message);
       });
   }, []);
 
-  if (status === TaskStatus.Loading)
+  if (status === QueryStatus.Loading)
     return (
       <LayoutContainer>
         <div>Loading</div>
@@ -43,9 +45,16 @@ const ListingsPage = () => {
 
   return (
     <LayoutContainer>
+      <div className="flex gap-6 my-6">
+        <CategoryFilterGroup
+          categories={categories}
+          filter={filter}
+          setFilter={setFilter}
+        />
+      </div>
       <div>
         <ul className="md:grid md:grid-cols-3 md:gap-6">
-          {listings.map((item: Task) => (
+          {filteredListings.map((item: Task) => (
             <ListingCard
               key={item.id}
               status={item.status}
