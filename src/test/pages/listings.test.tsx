@@ -27,7 +27,18 @@ describe("ListingsPage", () => {
 
   describe("when the tasks are fetched", () => {
     test("it shows the listings", async () => {
+      const user = userEvent.setup();
       render(<ListingsPage />);
+
+      await act(() => {
+        waitForElementToBeRemoved(() => screen.getByText(/loading/i));
+      });
+
+      const listItems = screen.queryAllByRole("listitem");
+
+      expect(listItems.length).toBeGreaterThan(0);
+
+      await user.click(listItems[0]);
     });
   });
 
