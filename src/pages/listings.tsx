@@ -3,10 +3,9 @@ import { useRouter } from "next/router";
 import fetch from "node-fetch";
 
 import { LayoutContainer } from "../components/LayoutContainer";
-import { ListingCard } from "../features/Listings/ListingCard";
+import { CategoryFilterGroup, ListingCard } from "../features/Listings";
 import { QueryStatus, Task, TaskCategory } from "../types";
 import { FeatureFlag } from "../features/FeatureFlag";
-import { CategoryFilterGroup } from "../features/Listings/CategoryFilterGroup";
 
 const categories = Object.keys(TaskCategory) as TaskCategory[];
 
