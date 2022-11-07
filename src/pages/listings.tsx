@@ -53,19 +53,20 @@ const ListingsPage = () => {
       </div>
       <div>
         <ul className="md:grid md:grid-cols-3 md:gap-6">
-          {filteredListings.map((item: Task) => (
-            <ListingCard
-              key={item.id}
-              status={item.status}
-              details={item.details}
-              budget={item.budget}
-              category={item.category}
-              postcode={item.location.name}
-              onClick={() => {
-                router.push(`/tasks/${item.id}`);
-              }}
-            />
-          ))}
+          {filteredListings.length > 0 &&
+            filteredListings.map((item: Task) => (
+              <ListingCard
+                key={item.id}
+                status={item.status}
+                details={item.details}
+                budget={item.budget}
+                category={item.category}
+                postcode={item.location.name}
+                onClick={() => {
+                  router.push(`/tasks/${item.id}`);
+                }}
+              />
+            ))}
         </ul>
       </div>
     </LayoutContainer>
