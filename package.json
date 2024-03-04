@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "dev-db": "docker compose --profile development up -d",
+    "stop-docker": "docker compose --profile development down"
   },
   "dependencies": {
     "next": "14.1.1",
