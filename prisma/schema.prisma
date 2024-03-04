@@ -27,4 +27,22 @@ model User {
   phone         String
   mobile        String
   roles         Role[]
+
+  ServiceProvider ServiceProvider[]
+}
+
+model ServiceProvider {
+  id     String  @id @default(uuid())
+  name   String
+  userId String
+  slug   String  @unique
+  abn    String  @unique
+  acn    String?
+  phone  String
+  mobile String
+  email  String
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([slug])
 }
