@@ -9,7 +9,10 @@
     "lint": "next lint",
     "test": "vitest",
     "dev-db": "docker compose --profile development up -d",
-    "stop-docker": "docker compose --profile development down"
+    "stop-docker": "docker compose --profile development down",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio"
   },
   "dependencies": {
     "next": "14.1.1",
@@ -27,6 +30,7 @@
     "eslint-config-next": "14.1.1",
     "jsdom": "^24.0.0",
     "postcss": "^8",
+    "prisma": "^5.10.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "vitest": "^1.3.1"
